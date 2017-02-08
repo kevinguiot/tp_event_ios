@@ -14,8 +14,9 @@ struct Categorie {
     var Id : Int
     var Sort : Int
     var Name : String
+    var NbrElement: Int
 }
-
+/*
 struct Element {
     var Id : Int = 0
     var CategoryId : Int = 0
@@ -27,7 +28,29 @@ struct Element {
     var Phone : String = "";
     var Email : String = "";
     var Descr : String = "";
+}*/
+
+struct Element {
+    /*var Id : Int = 0
+    var CategoryId : Int = 0
+    var Bundle : Int = 0
+    var Sort : Int = 0*/
+    
+    /*
+    var Image : URL = NSURLComponents().url!
+    var ImageLarge : URL = NSURLComponents().url!
+    */
+    
+    var Image : String = "";
+    var ImageLarge : String = "";
+    var Name : String = "";
+
+    
+    /*var Phone : String = "";
+    var Email : String = "";
+    var Descr : String = "";*/
 }
+
 
 struct Event {
     var Subtype : Int = 0
@@ -44,128 +67,150 @@ struct Event {
     var Image : URL = NSURLComponents().url!
 }
 
-class categorieCell: UITableViewCell {
-    
-    
+class CategorieCell : UITableViewCell {
+
+    @IBOutlet weak var image_large: UIImageView!
     @IBOutlet weak var element: UILabel!
-    @IBOutlet weak var flyer: UIImageView!
+}
+
+class elementVue : UIViewController {
     
-    @IBAction func button(_ sender: UIButton) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.brown;
         
         
         
+        
+        /*
+        let label = UILabel(frame: CGRect(x: 10, y: 65, width: UIScreen.main.bounds.width, height: 21))
+        label.text = "I'am a test label\ndfdsfdsfds"*/
+        
+        var descHtml = UIWebView();
+
+        self.view.addSubview(descHtml)
     }
-    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning();
+    }
 }
 
 class PartiesTableViewController: UITableViewController {
 
-    var categories  = [Categorie]()
-    
-    
-    
+    var categoriesList  = [Categorie]()
+    var elementList = [Element]();
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let url = URL(string: "http://sealounge.lanoosphere.com/seadata_en.xml") {
+        if let url = URL(string: "http://fairmont.lanoosphere.com/mobile/getdata?lang=en") {
+            
             if let data = try? Data(contentsOf: url) {
+                
                 let xml = SWXMLHash.parse(data)
 
+                
                 //On parcourt les categories
-                for categorie in xml["Data"]["categories"] {
+                for categories in xml["data"]["categories"]["category"].all {
                     
+                    var nbrElement = 0;
+                    
+                    //On parcourt les éléments
+                    for elements in categories["element"].all {
+                        
+                        //On créé l'élément
+                        let element = Element(
+                            Image: (elements.element?.allAttributes["image"]?.text)!,
+                            ImageLarge: (elements.element?.allAttributes["image_large"]?.text)!,
+                            Name: (elements.element?.allAttributes["name"]?.text)!
+                        );
+                        
+                        nbrElement += 1;
+                        
+                        //On rajoute l'élément
+                        self.elementList.append(element)
+                    }
+
                     //On crée la catégorie
                     let categorie = Categorie(
-                        Id: Int((categorie.element?.allAttributes["id"]?.text)!)!,
-                        Sort: Int((categorie.element?.allAttributes["sort"]?.text)!)!,
-                        Name: (categorie.element?.allAttributes["name"]?.text)!
+                        Id: Int((categories.element?.allAttributes["id"]?.text)!)!,
+                        Sort: Int((categories.element?.allAttributes["sort"]?.text)!)!,
+                        Name: (categories.element?.allAttributes["name"]?.text)!,
+                        NbrElement: nbrElement
                     )
                     
                     //On ajoute la catégorie
-                    self.categories.append(categorie)
+                    self.categoriesList.append(categorie)
                 }
            }
         }
-        
     }
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return self.categories.count;
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoriesList[section].NbrElement;
     }
+    
 
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //On récupère la cellule
-        let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! categorieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categorie", for: indexPath) as! CategorieCell
         
-        //On récupère l'événement
-        let event = categories[indexPath.row];
+        let imgView = cell.image_large;
         
-        cell.element?.text = "element";
+        //On change l'image par défaut
+        imgView?.image = UIImage(named: "picture")
 
-        /*
+        //On récupère les informations
+        let name = elementList[indexPath.row].Name;
+        let image = elementList[indexPath.row].Image;
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categories", for: indexPath)
-        
-        /*
-   
-        
-        
-        
-        let element = cell.contentView.viewWithTag(26) as! UILabel
-        nameLbl.text = events[indexPath.row].name
-        
-        let dateLbl = cell.contentView.viewWithTag(27) as! UILabel
-        dateLbl.text = "Le \(dateFormatter.string(from: events[indexPath.row].date))"
-        
-        let timeLbl = cell.contentView.viewWithTag(28) as! UILabel
-        timeLbl.text = "\(timeFormatter.string(from: events[indexPath.row].date))H"
-        
-        let imgView = cell.contentView.viewWithTag(25) as! UIImageView
+        cell.element.text = elementList[indexPath.row].Name;
+
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-            if let data = try? Data(contentsOf: self.events[indexPath.row].flyer) {
+            if let data = try? Data(contentsOf: NSURL(string: image) as! URL) {
                 DispatchQueue.main.async(execute: {
-                    imgView.alpha = 0
-                    UIView.transition(with: imgView, duration: 0.5, options: UIViewAnimationOptions(), animations: { () -> Void in
-                        imgView.image = UIImage(data: data)
-                        imgView.alpha = 1
+                    
+                    imgView?.alpha = 0
+                    
+                    UIView.transition(with: imgView!, duration: 0.5, options: UIViewAnimationOptions(), animations: { () -> Void in
+                        imgView?.image = UIImage(data: data)
+                        imgView?.alpha = 1
                     }, completion: { (ended) -> Void in
                         
                     })
                 })
             }
         }
-        
-        return cell*/*/
-        
         return cell
+    }
+
+    
+    //Contenu de la section
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categoriesList[section].Name;
+    }
+    
+    //Renvoie le nombre de section
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return categoriesList.count;
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let maVue = elementVue();
+
+        self.navigationController?.pushViewController(maVue, animated: true)
     }
     
     
-
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
