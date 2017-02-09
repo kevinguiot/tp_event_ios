@@ -16,6 +16,7 @@
 		DBCAF3DB1E3F6CA900E98B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCAF3D91E3F6CA900E98B5A /* LaunchScreen.storyboard */; };
 		DBCAF3E61E3F6CA900E98B5A /* td4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3E51E3F6CA900E98B5A /* td4Tests.swift */; };
 		DBCAF3F11E3F6CA900E98B5A /* td4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3F01E3F6CA900E98B5A /* td4UITests.swift */; };
+		DBCBCF301E4C657D007EA99D /* ElementVueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		DBCAF3EC1E3F6CA900E98B5A /* td4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = td4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCAF3F01E3F6CA900E98B5A /* td4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = td4UITests.swift; sourceTree = "<group>"; };
 		DBCAF3F21E3F6CA900E98B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementVueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				DBCAF3D91E3F6CA900E98B5A /* LaunchScreen.storyboard */,
 				DBCAF3DC1E3F6CA900E98B5A /* Info.plist */,
 				DB0690ED1E3F75B200A147A7 /* PartiesTableViewController.swift */,
+				DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */,
 			);
 			path = td4;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				DB0690EE1E3F75B200A147A7 /* PartiesTableViewController.swift in Sources */,
 				DBCAF3D31E3F6CA800E98B5A /* ViewController.swift in Sources */,
+				DBCBCF301E4C657D007EA99D /* ElementVueViewController.swift in Sources */,
 				DBCAF3D11E3F6CA800E98B5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

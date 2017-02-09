@@ -1,0 +1,6 @@
+framework module Pods_td4 {
+  umbrella header "Pods-td4-umbrella.h"
+
+  export *
+  module * { export * }
+}

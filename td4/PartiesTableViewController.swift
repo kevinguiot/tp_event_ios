@@ -14,7 +14,7 @@ struct Categorie {
     var Id : Int
     var Sort : Int
     var Name : String
-    var NbrElement: Int
+    var Elements = [Element]()
 }
 /*
 struct Element {
@@ -44,6 +44,8 @@ struct Element {
     var Image : String = "";
     var ImageLarge : String = "";
     var Name : String = "";
+    var Descr : String = "";
+    
 
     
     /*var Phone : String = "";
@@ -73,37 +75,15 @@ class CategorieCell : UITableViewCell {
     @IBOutlet weak var element: UILabel!
 }
 
-class elementVue : UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.brown;
-        
-        
-        
-        
-        /*
-        let label = UILabel(frame: CGRect(x: 10, y: 65, width: UIScreen.main.bounds.width, height: 21))
-        label.text = "I'am a test label\ndfdsfdsfds"*/
-        
-        var descHtml = UIWebView();
-
-        self.view.addSubview(descHtml)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning();
-    }
-}
-
 class PartiesTableViewController: UITableViewController {
 
     var categoriesList  = [Categorie]()
-    var elementList = [Element]();
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.topItem?.title = "Catégories";
 
         if let url = URL(string: "http://fairmont.lanoosphere.com/mobile/getdata?lang=en") {
             
@@ -111,12 +91,11 @@ class PartiesTableViewController: UITableViewController {
                 
                 let xml = SWXMLHash.parse(data)
 
-                
                 //On parcourt les categories
                 for categories in xml["data"]["categories"]["category"].all {
-                    
-                    var nbrElement = 0;
-                    
+
+                    var elementList = [Element]();
+
                     //On parcourt les éléments
                     for elements in categories["element"].all {
                         
@@ -124,13 +103,12 @@ class PartiesTableViewController: UITableViewController {
                         let element = Element(
                             Image: (elements.element?.allAttributes["image"]?.text)!,
                             ImageLarge: (elements.element?.allAttributes["image_large"]?.text)!,
-                            Name: (elements.element?.allAttributes["name"]?.text)!
+                            Name: (elements.element?.allAttributes["name"]?.text)!,
+                            Descr: (elements.element?.allAttributes["descr"]?.text)!
                         );
                         
-                        nbrElement += 1;
-                        
                         //On rajoute l'élément
-                        self.elementList.append(element)
+                        elementList.append(element)
                     }
 
                     //On crée la catégorie
@@ -138,7 +116,7 @@ class PartiesTableViewController: UITableViewController {
                         Id: Int((categories.element?.allAttributes["id"]?.text)!)!,
                         Sort: Int((categories.element?.allAttributes["sort"]?.text)!)!,
                         Name: (categories.element?.allAttributes["name"]?.text)!,
-                        NbrElement: nbrElement
+                        Elements: elementList
                     )
                     
                     //On ajoute la catégorie
@@ -155,7 +133,7 @@ class PartiesTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoriesList[section].NbrElement;
+        return categoriesList[section].Elements.count;
     }
     
 
@@ -167,13 +145,13 @@ class PartiesTableViewController: UITableViewController {
         
         //On change l'image par défaut
         imgView?.image = UIImage(named: "picture")
-
-        //On récupère les informations
-        let name = elementList[indexPath.row].Name;
-        let image = elementList[indexPath.row].Image;
         
-        cell.element.text = elementList[indexPath.row].Name;
-
+        //On récupère les informations
+        let name = categoriesList[indexPath.section].Elements[indexPath.row].Name;
+        let image = categoriesList[indexPath.section].Elements[indexPath.row].Image;
+        
+        cell.element.text = name
+        
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             if let data = try? Data(contentsOf: NSURL(string: image) as! URL) {
                 DispatchQueue.main.async(execute: {
@@ -205,13 +183,19 @@ class PartiesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let maVue = elementVue();
+        var element = categoriesList[indexPath.section].Elements[indexPath.row];
+        
+        let elementVue = ElementVueViewController();
 
-        self.navigationController?.pushViewController(maVue, animated: true)
+        elementVue.descr      = element.Descr;
+        elementVue.name       = element.Name;
+        elementVue.imageLarge = element.ImageLarge;
+
+
+        self.navigationController?.pushViewController(elementVue, animated: true)
     }
     
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
