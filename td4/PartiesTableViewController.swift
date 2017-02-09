@@ -149,7 +149,7 @@ class PartiesTableViewController: UITableViewController {
         let name = categoriesList[indexPath.section].Elements[indexPath.row].Name;
         let image = categoriesList[indexPath.section].Elements[indexPath.row].Image;
         
-        cell.element.text = name
+        cell.element.text = name;
         
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             if let data = try? Data(contentsOf: NSURL(string: image) as! URL) {

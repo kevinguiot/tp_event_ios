@@ -45,6 +45,7 @@ class FormulaireViewController: UIViewController {
             contentHtml = contentHtml + "<p><strong><u>Téléphone : </u></strong> " + telephoneTextField.text! + "</p>";
             contentHtml = contentHtml + "<p><strong><u>Être rappelé: </u></strong> " + ifRappel + "</p>";
             
+            //On envoie le mail
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.setToRecipients(["contact@kevinguiot.fr"])
@@ -52,6 +53,7 @@ class FormulaireViewController: UIViewController {
                 
                 present(mail, animated: true)
             }
+            
         } else {
             let alert = UIAlertController(title: "Formulaire", message: "Les éléments ne sont pas tous remplis.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "J'ai compris", style: UIAlertActionStyle.default, handler: nil))
