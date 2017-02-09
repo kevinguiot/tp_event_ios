@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class FormulaireViewController: UIViewController {
 
@@ -29,17 +30,32 @@ class FormulaireViewController: UIViewController {
             telephoneTextField.text != ""
         ) {
             
+            var ifRappel = "";
             
+            if(rappelerSwitch.isOn) {
+                ifRappel = "OUI";
+            } else {
+                ifRappel = "NON";
+            }
+        
+            //On génère le contenu du mail
+            var contentHtml = "<p><strong><u>Nom :</u></strong> " + nomTextField.text! + "</p>";
+            contentHtml = contentHtml + "<p><strong><u>Prénom :</u></strong> " + prenomTextField.text! + "</p>";
+            contentHtml = contentHtml + "<p><strong><u>Email : </u></strong> " + emailTextField.text! + "</p>";
+            contentHtml = contentHtml + "<p><strong><u>Téléphone : </u></strong> " + telephoneTextField.text! + "</p>";
+            contentHtml = contentHtml + "<p><strong><u>Être rappelé: </u></strong> " + ifRappel + "</p>";
             
-            
-            
-            
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.setToRecipients(["contact@kevinguiot.fr"])
+                mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+                
+                present(mail, animated: true)
+            }
         } else {
-            
             let alert = UIAlertController(title: "Formulaire", message: "Les éléments ne sont pas tous remplis.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "J'ai compris", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
         }
     }
 
