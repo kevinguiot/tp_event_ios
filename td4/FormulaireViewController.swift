@@ -10,11 +10,42 @@ import UIKit
 
 class FormulaireViewController: UIViewController {
 
+    @IBOutlet weak var nomTextField: UITextField!
+    
+    @IBOutlet weak var prenomTextField: UITextField!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var telephoneTextField: UITextField!
+    
+    @IBOutlet weak var rappelerSwitch: UISwitch!
+    
+    @IBAction func sendFormulaire(_ sender: UIButton) {
+        
+        //On regarde si toutes les valeurs demandées sont présentes
+        if(
+            nomTextField.text != "" &&
+            prenomTextField.text != "" &&
+            emailTextField.text != "" &&
+            telephoneTextField.text != ""
+        ) {
+            
+            
+            
+            
+            
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Formulaire", message: "Les éléments ne sont pas tous remplis.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "J'ai compris", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.title = "Contact";
-    
         // Do any additional setup after loading the view.
     }
 
