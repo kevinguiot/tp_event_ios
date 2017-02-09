@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ElementVueViewController: UIViewController {
 
@@ -24,25 +25,9 @@ class ElementVueViewController: UIViewController {
             
             var imgView = UIImageView(frame: UIScreen.main.bounds);
             
-            //On mets l'image par défaut
-            imgView.image = UIImage(named: "picture");
-            
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-                if let data = try? Data(contentsOf: NSURL(string: self.imageLarge) as! URL) {
-                    DispatchQueue.main.async(execute: {
-                        
-                        imgView.alpha = 0
-                        
-                        UIView.transition(with: imgView, duration: 0.5, options: UIViewAnimationOptions(), animations: { () -> Void in
-                            imgView.image = UIImage(data: data)
-                            imgView.alpha = 1
-                        }, completion: { (ended) -> Void in
-                            
-                        })
-                    })
-                }
-            }
-            
+            //On charge l'image
+            imgView.sd_setImage(with: URL(string: imageLarge), placeholderImage: UIImage(named: "picture"))
+
             self.view.addSubview(imgView)
             
         } else {
