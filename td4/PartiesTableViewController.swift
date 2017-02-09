@@ -79,7 +79,6 @@ class PartiesTableViewController: UITableViewController {
 
     var categoriesList  = [Categorie]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

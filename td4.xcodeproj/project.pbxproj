@@ -17,6 +17,7 @@
 		DBCAF3E61E3F6CA900E98B5A /* td4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3E51E3F6CA900E98B5A /* td4Tests.swift */; };
 		DBCAF3F11E3F6CA900E98B5A /* td4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3F01E3F6CA900E98B5A /* td4UITests.swift */; };
 		DBCBCF301E4C657D007EA99D /* ElementVueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */; };
+		DBCBCF321E4C9D11007EA99D /* FormulaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBCF311E4C9D11007EA99D /* FormulaireViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		DBCAF3F01E3F6CA900E98B5A /* td4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = td4UITests.swift; sourceTree = "<group>"; };
 		DBCAF3F21E3F6CA900E98B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementVueViewController.swift; sourceTree = "<group>"; };
+		DBCBCF311E4C9D11007EA99D /* FormulaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormulaireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				DBCAF3DC1E3F6CA900E98B5A /* Info.plist */,
 				DB0690ED1E3F75B200A147A7 /* PartiesTableViewController.swift */,
 				DBCBCF2F1E4C657D007EA99D /* ElementVueViewController.swift */,
+				DBCBCF311E4C9D11007EA99D /* FormulaireViewController.swift */,
 			);
 			path = td4;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCBCF321E4C9D11007EA99D /* FormulaireViewController.swift in Sources */,
 				DB0690EE1E3F75B200A147A7 /* PartiesTableViewController.swift in Sources */,
 				DBCAF3D31E3F6CA800E98B5A /* ViewController.swift in Sources */,
 				DBCBCF301E4C657D007EA99D /* ElementVueViewController.swift in Sources */,
