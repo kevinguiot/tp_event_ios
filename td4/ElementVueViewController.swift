@@ -22,16 +22,14 @@ class ElementVueViewController: UIViewController {
         
         //Si l'image l'arge est mentionnée
         if(imageLarge != "") {
-            
-            var imgView = UIImageView(frame: UIScreen.main.bounds);
-            
-            //On charge l'image
+            let imgView = UIImageView(frame: UIScreen.main.bounds);
+
             imgView.sd_setImage(with: URL(string: imageLarge), placeholderImage: UIImage(named: "picture"))
 
             self.view.addSubview(imgView)
             
         } else {
-            var descHtml = UIWebView(frame: UIScreen.main.bounds);
+            let descHtml = UIWebView(frame: UIScreen.main.bounds);
             
             descHtml.isOpaque = false;
             descHtml.backgroundColor = UIColor.darkGray;
@@ -43,16 +41,5 @@ class ElementVueViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
-    }    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

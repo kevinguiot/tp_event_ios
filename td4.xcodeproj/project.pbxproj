@@ -10,7 +10,6 @@
 		85ED9F924E095171F166387F /* Pods_td4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91693116889C0698F88BCF35 /* Pods_td4.framework */; };
 		DB0690EE1E3F75B200A147A7 /* PartiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0690ED1E3F75B200A147A7 /* PartiesTableViewController.swift */; };
 		DBCAF3D11E3F6CA800E98B5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3D01E3F6CA800E98B5A /* AppDelegate.swift */; };
-		DBCAF3D31E3F6CA800E98B5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCAF3D21E3F6CA800E98B5A /* ViewController.swift */; };
 		DBCAF3D61E3F6CA800E98B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCAF3D41E3F6CA800E98B5A /* Main.storyboard */; };
 		DBCAF3D81E3F6CA900E98B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCAF3D71E3F6CA900E98B5A /* Assets.xcassets */; };
 		DBCAF3DB1E3F6CA900E98B5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCAF3D91E3F6CA900E98B5A /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		DB0690ED1E3F75B200A147A7 /* PartiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartiesTableViewController.swift; sourceTree = "<group>"; };
 		DBCAF3CD1E3F6CA800E98B5A /* td4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = td4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCAF3D01E3F6CA800E98B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBCAF3D21E3F6CA800E98B5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBCAF3D51E3F6CA800E98B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBCAF3D71E3F6CA900E98B5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBCAF3DA1E3F6CA900E98B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				DBCAF3D01E3F6CA800E98B5A /* AppDelegate.swift */,
-				DBCAF3D21E3F6CA800E98B5A /* ViewController.swift */,
 				DBCAF3D41E3F6CA800E98B5A /* Main.storyboard */,
 				DBCAF3D71E3F6CA900E98B5A /* Assets.xcassets */,
 				DBCAF3D91E3F6CA900E98B5A /* LaunchScreen.storyboard */,
@@ -345,7 +342,6 @@
 			files = (
 				DBCBCF321E4C9D11007EA99D /* FormulaireViewController.swift in Sources */,
 				DB0690EE1E3F75B200A147A7 /* PartiesTableViewController.swift in Sources */,
-				DBCAF3D31E3F6CA800E98B5A /* ViewController.swift in Sources */,
 				DBCBCF301E4C657D007EA99D /* ElementVueViewController.swift in Sources */,
 				DBCAF3D11E3F6CA800E98B5A /* AppDelegate.swift in Sources */,
 			);
@@ -499,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3039C87B372F214D90943E18 /* Pods-td4.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = td4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -512,6 +509,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 128752643ACE0014DAE5C235 /* Pods-td4.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = td4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
