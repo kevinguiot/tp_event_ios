@@ -122,7 +122,12 @@ class PartiesTableViewController: UITableViewController {
     
     //Contenu de la section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categoriesList[section].Name;
+        var sectionName = categoriesList[section].Name;
+        
+        //Si on ignore les sections vide
+        if(categoriesList[section].Elements.count == 0) { sectionName = ""; }
+        
+        return sectionName;
     }
     
     //Renvoie le nombre de section
