@@ -12,12 +12,9 @@ import MessageUI
 class FormulaireViewController: UIViewController {
 
     @IBOutlet weak var nomTextField: UITextField!
-    
     @IBOutlet weak var prenomTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var telephoneTextField: UITextField!
-    
     @IBOutlet weak var rappelerSwitch: UISwitch!
     
     @IBAction func sendFormulaire(_ sender: UIButton) {
@@ -45,7 +42,7 @@ class FormulaireViewController: UIViewController {
             contentHtml = contentHtml + "<p><strong><u>Téléphone : </u></strong> " + telephoneTextField.text! + "</p>";
             contentHtml = contentHtml + "<p><strong><u>Être rappelé: </u></strong> " + ifRappel + "</p>";
             
-            //On envoie le mail
+            //On envoie le mail (A TESTER)
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.setToRecipients(["contact@kevinguiot.fr"])
@@ -82,5 +79,4 @@ class FormulaireViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
