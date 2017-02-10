@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Envoyer"; ObjectID = "1jG-1f-TCa"; */
+"1jG-1f-TCa.normalTitle" = "Envoyer";
+
+/* Class = "UILabel"; text = "Téléphone*:"; ObjectID = "E3I-Gb-MfW"; */
+"E3I-Gb-MfW.text" = "Téléphone*:";
+
+/* Class = "UIViewController"; title = "Contact"; ObjectID = "Fi7-yr-rea"; */
+"Fi7-yr-rea.title" = "Contact";
+
+/* Class = "UIBarButtonItem"; title = "Contact"; ObjectID = "NGN-bQ-rJJ"; */
+"NGN-bQ-rJJ.title" = "Contact";
+
+/* Class = "UILabel"; text = "Prénom*:"; ObjectID = "NUq-gd-rCM"; */
+"NUq-gd-rCM.text" = "Prénom*:";
+
+/* Class = "UILabel"; text = "element"; ObjectID = "WHm-26-rma"; */
+"WHm-26-rma.text" = "element";
+
+/* Class = "UILabel"; text = "Email*:"; ObjectID = "XhZ-ii-Kv5"; */
+"XhZ-ii-Kv5.text" = "Email*:";
+
+/* Class = "UILabel"; text = "Nom*:"; ObjectID = "eIT-s0-5gV"; */
+"eIT-s0-5gV.text" = "Nom*:";
+
+/* Class = "UILabel"; text = "Me rappeler "; ObjectID = "wqU-fy-q8j"; */
+"wqU-fy-q8j.text" = "Me rappeler ";

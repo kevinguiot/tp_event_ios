@@ -37,7 +37,10 @@ class PartiesTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.topItem?.title = "Catégories";
 
-        if let url = URL(string: "http://fairmont.lanoosphere.com/mobile/getdata?lang=en") {
+        //BONUS: on change la langue du xml dynama
+        let lang = Locale.current.languageCode
+
+        if let url = URL(string: "http://fairmont.lanoosphere.com/mobile/getdata?lang=" + lang!) {
             
             if let data = try? Data(contentsOf: url) {
                 

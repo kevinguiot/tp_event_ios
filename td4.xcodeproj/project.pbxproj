@@ -41,6 +41,8 @@
 		3039C87B372F214D90943E18 /* Pods-td4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-td4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-td4/Pods-td4.debug.xcconfig"; sourceTree = "<group>"; };
 		91693116889C0698F88BCF35 /* Pods_td4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_td4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB0690ED1E3F75B200A147A7 /* PartiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartiesTableViewController.swift; sourceTree = "<group>"; };
+		DB8346631E4DD71A00C46225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		DB8346641E4DD71A00C46225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DBCAF3CD1E3F6CA800E98B5A /* td4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = td4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCAF3D01E3F6CA800E98B5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBCAF3D51E3F6CA800E98B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,7 +247,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = DBCAF3C41E3F6CA800E98B5A;
@@ -383,6 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DBCAF3D51E3F6CA800E98B5A /* Base */,
+				DB8346631E4DD71A00C46225 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -391,6 +393,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DBCAF3DA1E3F6CA900E98B5A /* Base */,
+				DB8346641E4DD71A00C46225 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -452,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
