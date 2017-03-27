@@ -228,15 +228,18 @@
 				TargetAttributes = {
 					DBCAF3CC1E3F6CA800E98B5A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G5NKU86WUL;
 						ProvisioningStyle = Automatic;
 					};
 					DBCAF3E01E3F6CA900E98B5A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G5NKU86WUL;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DBCAF3CC1E3F6CA800E98B5A;
 					};
 					DBCAF3EB1E3F6CA900E98B5A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G5NKU86WUL;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DBCAF3CC1E3F6CA800E98B5A;
 					};
@@ -502,9 +505,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4;
+				PRODUCT_BUNDLE_IDENTIFIER = kevinguiot.fr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -516,9 +521,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4;
+				PRODUCT_BUNDLE_IDENTIFIER = kevinguiot.fr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -529,6 +536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4Tests;
@@ -543,6 +551,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4Tests;
@@ -556,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4UITests;
@@ -569,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = G5NKU86WUL;
 				INFOPLIST_FILE = td4UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DAM.td4UITests;
